@@ -634,7 +634,10 @@ It is possible to force the import of files which weren't downloaded using the
             return
 
         item_geoid = items[IAlternate.geonameid]
-        item_name = items[IAlternate.name]
+        try:
+            item_name = items[IAlternate.name]
+        except IndexError:
+            item_name = ""
 
         # arg optimisation code kills me !!!
         item_geoid = int(item_geoid)
